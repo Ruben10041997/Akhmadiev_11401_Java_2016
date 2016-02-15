@@ -9,7 +9,11 @@ public class Main {
 int ride;
 
     public static void main(String[] args) {
-        Hatchback Kalina = new Hatchback();
+        Hatchback Kalina = new Hatchback("Lada", "Kalina");
+        Car fastCoupe = new Coupe("Porsche", "911");
+        Car Crysler = new Estate("Crysler", "Grand Voyager");
+        Jeep Jeep = new Jeep("Jeep", "Wrangler");
+        Sedan Lada = new Sedan("Lada","Priora");
         AutomaticalWindowRaiser windowRaiser  = new AutomaticalWindowRaiser();
         HybridEngine hybridEngine = new HybridEngine();
 
@@ -21,11 +25,21 @@ int ride;
             Kalina.toEnableCLimateControl().toCool();
 
 
-        //fastestCoupe.toBlow() - не вызовется, позднее связывание
-      Car fastCoupe = new Coupe();
-        Coupe fastestCoupe = new Coupe();
-        fastestCoupe.toDrive();
-        fastCoupe.toDrive();
+// восходящее преобразование и позднее связывание (методы fastCoupe вызовутся, т.к. позднее связывание)
+
+        fastCoupe.toUseHeadlights();
+        fastCoupe.toWindowRise();
+
+        //полиморфизм
+        ArrayList<Car> cars = new ArrayList<Car>();
+        cars.add(Kalina);
+        cars.add(fastCoupe);
+        cars.add(Lada);
+        cars.add(Jeep);
+        cars.add(Crysler);
+        for(Car car : cars) {
+            car.toDrive();
+        }
 
 
        /*     Kalina.toDrive();

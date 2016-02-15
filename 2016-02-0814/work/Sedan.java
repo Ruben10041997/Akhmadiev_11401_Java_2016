@@ -16,6 +16,11 @@ public class Sedan extends AutomaticalWindowRaiser implements  Car, Engine, Seat
     public static int engineRpm = 0;
     double engineTemp;
 
+    public Sedan(String model, String mark) {
+        this.model = model;
+        this.mark = mark;
+    }
+
     int getGears(){
         return gears;
     }

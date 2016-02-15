@@ -15,6 +15,11 @@ public class Jeep extends DieselEngine implements Car, Gearbox {
         return gears;
     }
 
+    public Jeep(String model, String mark) {
+        this.model = model;
+        this.mark = mark;
+    }
+
     @Override
     public String toIncreaseGear() {
         if ((Hatchback.engineRpm>=5000)&&(gears<=6)){

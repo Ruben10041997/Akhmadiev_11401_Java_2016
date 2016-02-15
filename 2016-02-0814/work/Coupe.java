@@ -17,6 +17,10 @@ public class Coupe extends SportGearbox implements Car,ClimateControl,Multimedia
     double engineTemp;
 
 
+    public Coupe(String mark, String model) {
+        this.mark = mark;
+        this.model = model;
+    }
 
     @Override
     public void toDrive() {

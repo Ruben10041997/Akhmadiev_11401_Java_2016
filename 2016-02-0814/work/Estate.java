@@ -94,6 +94,11 @@ public class Estate extends LeatherSits implements  Car, Engine, Gearbox, Climat
         }
     }
 
+    public Estate(String model, String mark) {
+        this.model = model;
+        this.mark = mark;
+    }
+
     @Override
     public String toNeutral() {
         Estate.engineRpm=0;

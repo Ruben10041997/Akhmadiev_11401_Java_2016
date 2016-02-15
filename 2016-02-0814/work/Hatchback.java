@@ -119,6 +119,11 @@ public class Hatchback extends SportGearbox implements Car, MultimediaSystem, Se
 
     }
 
+    public Hatchback(String mark, String model) {
+        this.mark = mark;
+        this.model = model;
+    }
+
     @Override
     public void reduceTracrion() {
         engineRpm=engineRpm-1000;
