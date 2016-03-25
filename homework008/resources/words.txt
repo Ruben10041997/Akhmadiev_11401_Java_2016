@@ -1,0 +1,8 @@
+father
+mother
+baby
+girlfriend
+daughter
+son
+grandmother
+grandfather

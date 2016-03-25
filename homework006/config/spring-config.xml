@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="lada" class="homework006.Hatchback">
+        <constructor-arg name="mark" value="Lada"/>
+        <constructor-arg name="model" value="Kalina"/>
+    </bean>
+
+    <bean id="porsche" class="homework006.Coupe">
+        <constructor-arg name="mark" value="Porsche"/>
+        <constructor-arg name="model" value="911"/>
+    </bean>
+
+    <bean id="chrysler" class="homework006.Estate">
+        <constructor-arg name="mark" value="Chrysler"/>
+        <constructor-arg name="model" value="Grand Voyager"/>
+    </bean>
+
+    <bean id="jeep" class="homework006.Jeep">
+        <constructor-arg name="mark" value="Jeep"/>
+        <constructor-arg name="model" value="Wrangler"/>
+    </bean>
+
+    <bean id="priora" class="homework006.Sedan">
+        <constructor-arg name="mark" value="Lada"/>
+        <constructor-arg name="model" value="Priora"/>
+    </bean>
+
+    <bean id="windowRaiser" class="homework006.AutomaticalWindowRaiser">
+    </bean>
+
+    <bean id="hybridEngine" class="homework006.HybridEngine">
+    </bean>
+
+</beans>
