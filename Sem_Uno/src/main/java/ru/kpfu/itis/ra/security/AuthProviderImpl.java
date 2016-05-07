@@ -5,6 +5,7 @@ package ru.kpfu.itis.ra.security;
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,7 +26,7 @@ public class AuthProviderImpl implements AuthenticationProvider {
 
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-
+     @Autowired
      UserRepository userRepository;
 
     public Authentication authenticate(Authentication authentication) throws
@@ -42,7 +43,7 @@ public class AuthProviderImpl implements AuthenticationProvider {
         }
 
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-        authorities.add(new SimpleGrantedAuthority(myUser.getRole().toString()));
+        authorities.add(new SimpleGrantedAuthority(myUser.getRole()));
 
         return new UsernamePasswordAuthenticationToken(myUser, null, authorities);
     }

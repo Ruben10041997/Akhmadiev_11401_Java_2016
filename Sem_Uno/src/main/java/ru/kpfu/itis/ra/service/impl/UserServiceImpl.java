@@ -1,9 +1,12 @@
 package ru.kpfu.itis.ra.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kpfu.itis.ra.models.MyUser;
@@ -24,17 +27,37 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    BCryptPasswordEncoder bcryptEncoder;
 
-    public List<MyUser> findAll() {
+    @Transactional
+    public MyUser getById(Integer id) {
+        return userRepository.findById(id);
+    }
+
+    @Transactional
+    public List<MyUser> getAll() {
         return userRepository.findAll();
     }
 
-    public MyUser findByLogin(String login) {
+    @Transactional
+    public MyUser getByLogin(String login) {
         return userRepository.findByLogin(login);
     }
-    
-    public MyUser findById(Integer id) {
-        return userRepository.findById(id);
+
+    @Transactional
+    public MyUser create(MyUser user) {
+        user.setLogin(user.getLogin());
+        user.setPassword(user.getPassword());
+        user.setRole(user.getRole());
+        return userRepository.save(user);
+    }
+
+    @Transactional
+    public MyUser delete(Integer id) {
+        MyUser deleteUser = userRepository.findById(id);
+        userRepository.delete(deleteUser);
+        return deleteUser;
     }
 
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {

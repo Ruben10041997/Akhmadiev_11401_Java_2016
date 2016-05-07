@@ -9,23 +9,49 @@ import org.springframework.stereotype.Component;
 import ru.kpfu.itis.ra.models.MyUser;
 import ru.kpfu.itis.ra.repositories.UserRepository;
 import ru.kpfu.itis.ra.service.UserService;
+import ru.kpfu.itis.ra.service.impl.UserServiceImpl;
 
 import java.util.List;
 
 /**
  * Created by rubenahmadiev on 24.04.16.
  */
-
+@Component
 public class Main {
 
     @Autowired
-    UserService us;
+    UserService userService;
 
-    public MyUser getUser(String login) {
-        return us.findByLogin(login);
+    public void callService(ApplicationContext ctx) {
+        System.out.println("---callService---");
+        System.out.println(userService);
+        userService.getAll();
     }
 
     public static void main(String[] args) {
+        // TODO Auto-generated method stub
+//        System.out.println("test");
+//        ApplicationContext ctx=new ClassPathXmlApplicationContext("persistence-config.xml");
+//        System.out.println("ctx>>"+ctx);
+//
+//        UserService userService = ctx.getBean(UserService.class);
+//        userService.findById(1);
+//        UserRepository us=ctx.getBean(UserRepository.class);
+//        System.out.println(us);
+//        us.findAll().toString();
+//        us.findById(1);
+//        UserService userService1 = ctx.getBean(UserService.class);
+//        userService1.findAll();
+
+
+
+
+
+
+
+
+
+
   /*      Autopark bmw_525xi = new Autopark();
         bmw_525xi.setId(10);
         bmw_525xi.setMark("BMW");
@@ -48,17 +74,18 @@ public class Main {
        /* UserServiceImpl usersService = new UserServiceImpl();
         usersService.findById(1);*/
 
-//        ApplicationContext ac =
-//                new ClassPathXmlApplicationContext("persistence-config.xml");
-//        UserRepository us = ac.getBean(UserRepository.class);
+        ApplicationContext ac =
+                new ClassPathXmlApplicationContext("persistence-config.xml");
+        UserRepository us = ac.getBean(UserRepository.class);
 
-      //  MyUser u = us.findById(2);
-//        System.out.println(u);
+        MyUser u = us.findById(2);
+        System.out.println(u);
 //        MyUser u2 = us.findByLogin("admin");
 //        System.out.println(u2);
 //        List<MyUser> usersList = userRepository.findAll();
 //        for (MyUser users: usersList)
 //            System.out.println(users);
+
 
 
 

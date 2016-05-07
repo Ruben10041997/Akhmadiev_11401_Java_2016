@@ -24,21 +24,21 @@ import java.util.List;
 @RequestMapping("/db")
 public class DBController {
 
+    @Autowired
     UserService userService;
-//
+
 //    @Autowired
-//    AutoparkRepository autoparkRepository;
+    AutoparkRepository autoparkRepository;
 
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String getUsers(ModelMap model) {
 
 
-        MyUser myUser = userService.findById(1);
-//        List<MyUser> users = userService.findAll();
+     List<MyUser> users = userService.getAll();
 
-//        model.addAttribute("users", users);
-      model.addAttribute("users", myUser);
+       model.addAttribute("users", users);
+
         return "users";
     }
 

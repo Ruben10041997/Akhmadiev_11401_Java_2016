@@ -6,8 +6,6 @@ import javax.persistence.*;
  * Created by rubenahmadiev on 24.04.16.
  */
 @Entity
-@Table(name = "autopark")
-@NamedQuery(name = "Autopark.getAll", query = "SELECT a from Autopark a")
 public class Autopark {
     private Integer id;
     private String mark;
@@ -25,6 +23,8 @@ public class Autopark {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "autopark_id_seq")
+    @SequenceGenerator(name = "autopark_id_seq", sequenceName = "autopark_id_sequence", allocationSize = 1)
     public Integer getId() {
         return id;
     }

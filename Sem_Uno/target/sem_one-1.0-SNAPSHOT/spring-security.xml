@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+    <security:http auto-config="true" use-expressions="true">
+
+
+        <security:intercept-url pattern="/anonim" access="isAnonymous()"/>
+        <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+        <security:intercept-url pattern="/home/**" access="isAuthenticated()"/>
+        <security:form-login
+                login-page="/signin"
+                authentication-failure-url="/signin_failure"
+                login-processing-url="/signin/process"
+                password-parameter="password"
+                username-parameter="login"/>
+        <security:logout logout-url="/logout" logout-success-url="/"/>
+        <!--<security:remember-me-->
+            <!--key="myAppKey"-->
+            <!--data-source-ref="dataSource"-->
+            <!--remember-me-parameter="remember-me"-->
+            <!--token-validity-seconds="86400"/>-->
+        <security:access-denied-handler ref="accessDenyHandler"/>
+    </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider ref="authProviderImpl"/>
+    </security:authentication-manager>
+
+    <bean id="accessDenyHandler" class="ru.kpfu.itis.ra.security.AccessDenyHandler">
+        <property name="errorPage" value="/accessdeny"/>
+    </bean>
+
+    <bean id="authProviderImpl" class="ru.kpfu.itis.ra.security.AuthProviderImpl"/>
+
+    <bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <constructor-arg name="strength" value="12" />
+    </bean>
+
+
+
+</beans>

@@ -10,11 +10,15 @@ import java.util.List;
 
 public interface UserService {
 
-    MyUser findById(Integer id);
+    MyUser getById(Integer id);
 
-    List<MyUser> findAll();
+    List<MyUser> getAll();
 
-    MyUser findByLogin(String login);
+    MyUser getByLogin(String login);
+
+    MyUser create(MyUser user);
+
+    MyUser delete(Integer id);
 
 
 }

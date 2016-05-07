@@ -2,8 +2,12 @@ package ru.kpfu.itis.ra.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import ru.kpfu.itis.ra.models.MyUser;
+
+import java.util.List;
 
 
 /**
@@ -11,11 +15,14 @@ import ru.kpfu.itis.ra.models.MyUser;
  */
 
 @Repository
-public interface UserRepository extends JpaRepository<MyUser, Integer> {
+public interface UserRepository extends CrudRepository<MyUser, Integer> {
 
         MyUser findById(Integer id);
 
-     MyUser findByLogin(String login);
+        MyUser findByLogin(String login);
+
+        List<MyUser> findAll();
+
 
     }
 

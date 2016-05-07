@@ -1,6 +1,6 @@
 package ru.kpfu.itis.ra.models_test;
 
-import org.junit.Test;
+
 import ru.kpfu.itis.ra.models.Autopark;
 import ru.kpfu.itis.ra.service.impl.AutoparkServiceImpl;
 
@@ -11,7 +11,7 @@ public class AutoparkTest {
 
     AutoparkServiceImpl service = new AutoparkServiceImpl();
 
-    @Test
+
     public void testSaveRecord() throws Exception {
         //Создаем автомобиль для записи в БД
         Autopark car1 = new Autopark();
