@@ -49,7 +49,7 @@
 
     <div class="content clearfix">
 
-        <form action="#" class="register" method="post">
+        <form action="#" class="reg-form" method="post">
 
             <h1>Car adding</h1>
 
@@ -99,9 +99,25 @@
                 </div> <!-- /field -->
 
                 <div class="field">
-                    <label for="vehicle_condition">Vehicle Condition:</label>
-                    <input type="number" id="vehicle_condition" name="vehicle_condition" value="" placeholder="Vehicle Condition" class="login"/>
+                <label for="vehicle_condition">Vehicle Condition:</label>
+                <input type="number" id="vehicle_condition" name="vehicle_condition" value="" placeholder="Vehicle Condition" class="login"/>
+            </div> <!-- /field -->
+
+                <div class="field">
+                    <label for="maintenance_costs">Maintenance Cost:</label>
+                    <input type="number" id="maintenance_costs" name="maintenance_costs" value="" placeholder="Maintenance Cost" class="login"/>
                 </div> <!-- /field -->
+
+                <div class="field">
+                    <label for="net_profit">Net Profit :</label>
+                    <input type="number" id="net_profit" name="net_profit" value="" placeholder="Net Profit" class="login"/>
+                </div> <!-- /field -->
+
+                <div class="field">
+                    <label for="driver_id">Driver ID:</label>
+                    <input type="number" id="driver_id" name="driver_id" value="" placeholder="Driver Id" class="login"/>
+                </div> <!-- /field -->
+
 
             </div> <!-- /login-fields -->
 

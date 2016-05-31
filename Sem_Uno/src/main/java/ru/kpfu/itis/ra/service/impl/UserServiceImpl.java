@@ -1,8 +1,6 @@
 package ru.kpfu.itis.ra.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -60,6 +58,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return deleteUser;
     }
 
+    @Transactional
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return null;
     }

@@ -7,20 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import ru.kpfu.itis.ra.models.Autopark;
 import ru.kpfu.itis.ra.models.MyUser;
-import ru.kpfu.itis.ra.service.AutoparkService;
+import ru.kpfu.itis.ra.service.CarService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
     @Autowired
-    AutoparkService autoparkService;
+    CarService carService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String user(ModelMap map, HttpServletRequest request) {

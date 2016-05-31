@@ -33,12 +33,11 @@ public class ClientServiceImpl implements ClientService {
 
     @Transactional
     public Client create(Client client) {
-        client.setNameOfOrganization(client.getNameOfOrganization());
+        client.setNameoforganization(client.getNameoforganization());
         client.setInn(client.getInn());
-        client.setKpp(client.getKpp());
-        client.setFieldOfActivity(client.getFieldOfActivity());
+        client.setFieldofactivity(client.getFieldofactivity());
         client.setCeo(client.getCeo());
-        client.setMailOfOrganization(client.getMailOfOrganization());
+        client.setMailoforganization(client.getMailoforganization());
         return clientRepository.save(client);
     }
 

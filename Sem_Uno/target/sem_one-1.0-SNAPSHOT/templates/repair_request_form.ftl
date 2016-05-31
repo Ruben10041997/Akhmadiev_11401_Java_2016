@@ -34,7 +34,7 @@
             </a>
 
             <a class="brand" href="/home">
-                Cars Control System
+                Repair Requests Control System
             </a>
 
             <div class="nav-collapse">
@@ -64,54 +64,41 @@
 
 
 
+
+
 <div class="account-container register">
 
     <div class="content clearfix">
 
         <form action="#" class="reg-form" method="post">
 
-            <h1>Registration for Free Account</h1>
+            <h1>Request adding</h1>
 
             <div class="login-fields">
 
-                <p>Create your free account:</p>
+                <p>Add a repair request:</p>
 
                 <div class="field">
-                    <label for="login">Login:</label>
-                    <input type="text" id="login" name="login" value="" placeholder="Login" class="login" />
+                    <label for="issues">Issues:</label>
+                    <input type="text" id="issues" name="issues" value="" placeholder="Issues " class="login" />
                 </div> <!-- /field -->
 
                 <div class="field">
-                    <label for="role">Role:(USER_ROLE)</label>
-                    <input type="text" id="role" name="role" value="" placeholder="Role" class="login" />
+                    <label for="carsid">Cars Id:</label>
+                    <input type="number" id="carsid" name="carsid" value="" placeholder="Cars Id" class="login" />
                 </div> <!-- /field -->
 
-
-            <#--<div class="field">-->
-            <#--<label for="email">Email Address:</label>-->
-            <#--<input type="text" id="email" name="email" value="" placeholder="Email" class="login"/>-->
-            <#--</div> <!-- /field &ndash;&gt;-->
 
                 <div class="field">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" value="" placeholder="Password" class="login"/>
+                    <label for="timeoffix">Time Of Fix:</label>
+                    <input type="text" id="timeoffix" name="timeoffix" value="" placeholder="Time Of Fix" class="login"/>
                 </div> <!-- /field -->
-
-            <#--<div class="field">-->
-            <#--<label for="confirm_password">Confirm Password:</label>-->
-            <#--<input type="password" id="confirm_password" name="confirm_password" value="" placeholder="Confirm Password" class="login"/>-->
-            <#--</div> <!-- /field &ndash;&gt;-->
 
             </div> <!-- /login-fields -->
 
             <div class="login-actions">
 
-            <#--<span class="login-checkbox">-->
-            <#--<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />-->
-            <#--<label class="choice" for="Field">Agree with the Terms & Conditions.</label>-->
-            <#--</span>-->
-
-                <button class="button btn btn-primary btn-large">Register</button>
+                <button class="button btn btn-primary btn-large">Add</button>
 
             </div> <!-- .actions -->
 
@@ -136,4 +123,3 @@
 </body>
 
 </html>
-

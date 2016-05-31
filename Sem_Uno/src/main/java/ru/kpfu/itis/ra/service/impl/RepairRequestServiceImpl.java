@@ -3,7 +3,7 @@ package ru.kpfu.itis.ra.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kpfu.itis.ra.models.RepairRequest;
+import ru.kpfu.itis.ra.models.Repairrequest;
 import ru.kpfu.itis.ra.repositories.RepairRequestsRepository;
 import ru.kpfu.itis.ra.service.RepairRequestService;
 
@@ -22,30 +22,25 @@ public class RepairRequestServiceImpl implements RepairRequestService {
 
 
     @Transactional
-    public List<RepairRequest> getAll() {
+    public List<Repairrequest> getAll() {
         return repairRequestsRepository.findAll();
     }
 
     @Transactional
-    public RepairRequest getById(Integer id) {
+    public Repairrequest getById(Integer id) {
         return repairRequestsRepository.findById(id);
     }
 
     @Transactional
-    public RepairRequest getByCarsId(Integer carsId) {
-        return repairRequestsRepository.findByCarsId(carsId);
-    }
-
-    @Transactional
-    public RepairRequest create(RepairRequest repairRequest) {
-        repairRequest.setCarsId(repairRequest.getCarsId());
+    public Repairrequest create(Repairrequest repairRequest) {
+        repairRequest.setCarsid(repairRequest.getCarsid());
         repairRequest.setIssues(repairRequest.getIssues());
         return repairRequestsRepository.save(repairRequest);
     }
 
     @Transactional
-    public RepairRequest delete(Integer id) {
-        RepairRequest deleteRepairRequest = repairRequestsRepository.findById(id);
+    public Repairrequest delete(Integer id) {
+        Repairrequest deleteRepairRequest = repairRequestsRepository.findById(id);
         repairRequestsRepository.delete(deleteRepairRequest);
         return deleteRepairRequest;
     }

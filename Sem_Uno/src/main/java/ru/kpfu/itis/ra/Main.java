@@ -2,14 +2,12 @@ package ru.kpfu.itis.ra;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
+import ru.kpfu.itis.ra.models.Client;
 import ru.kpfu.itis.ra.models.MyUser;
-import ru.kpfu.itis.ra.repositories.UserRepository;
+import ru.kpfu.itis.ra.repositories.*;
 import ru.kpfu.itis.ra.service.UserService;
-import ru.kpfu.itis.ra.service.impl.UserServiceImpl;
 
 import java.util.List;
 
@@ -22,11 +20,8 @@ public class Main {
     @Autowired
     UserService userService;
 
-    public void callService(ApplicationContext ctx) {
-        System.out.println("---callService---");
-        System.out.println(userService);
-        userService.getAll();
-    }
+    @Autowired
+    CarRepository carRepository;
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
@@ -77,20 +72,37 @@ public class Main {
         ApplicationContext ac =
                 new ClassPathXmlApplicationContext("persistence-config.xml");
         UserRepository us = ac.getBean(UserRepository.class);
+        DriverRepository dr = ac.getBean(DriverRepository.class);
+        CarRepository cr = ac.getBean(CarRepository.class);
+        ClientsOrderRepository cl = ac.getBean(ClientsOrderRepository.class);
+        ClientRepository cli = ac.getBean(ClientRepository.class);
 
-        MyUser u = us.findById(2);
-        System.out.println(u);
+
+//        MyUser u = us.findById(1);
+//        System.out.println(ap.findByMark("Toyota"));
+//        System.out.println(u);
+
 //        MyUser u2 = us.findByLogin("admin");
 //        System.out.println(u2);
-//        List<MyUser> usersList = userRepository.findAll();
-//        for (MyUser users: usersList)
+        List<MyUser> users = us.findAll();
+        for (MyUser user: users)
+            System.out.println(users);
+
+//        Driver driver = dr.findById(5);
+//        System.out.println(driver.toString());
+
+//        List<MyUser> users = us.findAll();
+//        for (MyUser user: users)
 //            System.out.println(users);
 
 
 
 
 
-        }
+
+
+
+    }
 
     }
 

@@ -34,27 +34,8 @@
             </a>
 
             <a class="brand" href="/home">
-                Cars Control System
+                Client Control System
             </a>
-
-            <div class="nav-collapse">
-                <ul class="nav pull-right">
-                    <li class="">
-                        <a href="/signin" class="">
-                            Already have an account? Login now
-                        </a>
-
-                    </li>
-                    <li class="">
-                        <a href="/homepage" class="">
-                            <i class="icon-chevron-left"></i>
-                            Back to Homepage
-                        </a>
-
-                    </li>
-                </ul>
-
-            </div><!--/.nav-collapse -->
 
         </div> <!-- /container -->
 
@@ -70,48 +51,43 @@
 
         <form action="#" class="reg-form" method="post">
 
-            <h1>Registration for Free Account</h1>
+            <h1>Client adding</h1>
 
             <div class="login-fields">
 
-                <p>Create your free account:</p>
+                <p>Add a Client:</p>
 
                 <div class="field">
-                    <label for="login">Login:</label>
-                    <input type="text" id="login" name="login" value="" placeholder="Login" class="login" />
+                    <label for="nameoforganization">Name Of Organization:</label>
+                    <input type="text" id="nameoforganization" name="nameoforganization" value="" placeholder="Name Of Organization" class="login" />
                 </div> <!-- /field -->
 
                 <div class="field">
-                    <label for="role">Role:(USER_ROLE)</label>
-                    <input type="text" id="role" name="role" value="" placeholder="Role" class="login" />
+                    <label for="fieldofactivity">Field Of Activity:</label>
+                    <input type="text" id="fieldofactivity" name="fieldofactivity" value="" placeholder="Field Of Activity" class="login" />
                 </div> <!-- /field -->
 
-
-            <#--<div class="field">-->
-            <#--<label for="email">Email Address:</label>-->
-            <#--<input type="text" id="email" name="email" value="" placeholder="Email" class="login"/>-->
-            <#--</div> <!-- /field &ndash;&gt;-->
 
                 <div class="field">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" value="" placeholder="Password" class="login"/>
+                    <label for="mailoforganization">Mail Of Organization:</label>
+                    <input type="text" id="mailoforganization" name="mailoforganization" value="" placeholder="Mail Of Organization" class="login"/>
                 </div> <!-- /field -->
 
-            <#--<div class="field">-->
-            <#--<label for="confirm_password">Confirm Password:</label>-->
-            <#--<input type="password" id="confirm_password" name="confirm_password" value="" placeholder="Confirm Password" class="login"/>-->
-            <#--</div> <!-- /field &ndash;&gt;-->
+                <div class="field">
+                    <label for="ceo">CEO:</label>
+                    <input type="text" id="ceo" name="ceo" value="" placeholder="CEO" class="login"/>
+                </div> <!-- /field -->
+
+                <div class="field">
+                    <label for="inn">INN:</label>
+                    <input type="number" id="inn" name="inn" value="" placeholder="INN" class="login"/>
+                </div> <!-- /field -->
 
             </div> <!-- /login-fields -->
 
             <div class="login-actions">
 
-            <#--<span class="login-checkbox">-->
-            <#--<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />-->
-            <#--<label class="choice" for="Field">Agree with the Terms & Conditions.</label>-->
-            <#--</span>-->
-
-                <button class="button btn btn-primary btn-large">Register</button>
+                <button class="button btn btn-primary btn-large">Add</button>
 
             </div> <!-- .actions -->
 
@@ -122,11 +98,6 @@
 </div> <!-- /account-container -->
 
 
-<!-- Text Under Box -->
-<div class="login-extra">
-    Already have an account? <a href="/signin">Login to your account</a>
-</div> <!-- /login-extra -->
-
 
 <script src="../js/jquery-1.7.2.min.js"></script>
 <script src="../js/bootstrap.js"></script>
@@ -136,4 +107,3 @@
 </body>
 
 </html>
-

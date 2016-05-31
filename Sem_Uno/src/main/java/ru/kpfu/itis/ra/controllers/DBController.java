@@ -1,34 +1,40 @@
 package ru.kpfu.itis.ra.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ru.kpfu.itis.ra.models.MyUser;
-import ru.kpfu.itis.ra.repositories.AutoparkRepository;
-import ru.kpfu.itis.ra.repositories.UserRepository;
-import ru.kpfu.itis.ra.service.UserService;
-import ru.kpfu.itis.ra.service.impl.UserServiceImpl;
+import ru.kpfu.itis.ra.models.*;
+import ru.kpfu.itis.ra.service.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * Created by rubenahmadiev on 01.05.16.
  */
 @Controller
-@RequestMapping("/db")
+//@RequestMapping("/db")
 public class DBController {
 
     @Autowired
     UserService userService;
 
-//    @Autowired
-    AutoparkRepository autoparkRepository;
+    @Autowired
+    CarService carService;
+
+    @Autowired
+    ClientsOrderService orderService;
+
+    @Autowired
+    DriverService driverService;
+
+    @Autowired
+    ClientService clientService;
+
+    @Autowired
+    RepairRequestService requestService;
+
 
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
@@ -40,6 +46,56 @@ public class DBController {
        model.addAttribute("users", users);
 
         return "users";
+    }
+
+    @RequestMapping(value = "/cars", method = RequestMethod.GET)
+    public String getCars(ModelMap model) {
+
+        List<Car> cars = carService.getAll();
+
+        model.addAttribute("cars", cars);
+
+        return "cars";
+    }
+
+    @RequestMapping(value = "/orders", method = RequestMethod.GET)
+    public String getOrders(ModelMap model) {
+
+        List<ClientsOrder> orders = orderService.getAll();
+
+        model.addAttribute("orders", orders);
+
+        return "orders";
+    }
+
+    @RequestMapping(value = "/drivers", method = RequestMethod.GET)
+    public String getDrivers(ModelMap model) {
+
+        List<Driver> drivers = driverService.getAll();
+
+        model.addAttribute("drivers", drivers);
+
+        return "drivers";
+    }
+
+    @RequestMapping(value = "/clients", method = RequestMethod.GET)
+    public String getClients(ModelMap model) {
+
+        List<Client> clients = clientService.getAll();
+
+        model.addAttribute("clients", clients);
+
+        return "clients";
+    }
+
+    @RequestMapping(value = "/requests", method = RequestMethod.GET)
+    public String getRepairRequests(ModelMap model) {
+
+        List<Repairrequest> requests = requestService.getAll();
+
+        model.addAttribute("requests", requests);
+
+        return "requests";
     }
 
 }

@@ -3,17 +3,16 @@ package ru.kpfu.itis.ra.models;
 import javax.persistence.*;
 
 /**
- * Created by rubenahmadiev on 24.04.16.
+ * Created by rubenahmadiev on 27.05.16.
  */
 @Entity
-@Table(name = "repair_request", schema = "public", catalog = "AutoManagment")
-public class RepairRequest {
+public class Repairrequest {
     private Integer id;
-    private Integer carsId;
     private String issues;
-    private String timeFix;
-    private Integer repairSpending;
     private String status;
+    private Integer carsid;
+    private String timeoffix;
+    private Integer repairspendings;
 
     @Id
     @Column(name = "id")
@@ -28,16 +27,6 @@ public class RepairRequest {
     }
 
     @Basic
-    @Column(name = "cars_id")
-    public Integer getCarsId() {
-        return carsId;
-    }
-
-    public void setCarsId(Integer carsId) {
-        this.carsId = carsId;
-    }
-
-    @Basic
     @Column(name = "issues")
     public String getIssues() {
         return issues;
@@ -45,26 +34,6 @@ public class RepairRequest {
 
     public void setIssues(String issues) {
         this.issues = issues;
-    }
-
-    @Basic
-    @Column(name = "time_fix")
-    public String getTimeFix() {
-        return timeFix;
-    }
-
-    public void setTimeFix(String timeFix) {
-        this.timeFix = timeFix;
-    }
-
-    @Basic
-    @Column(name = "repair_spending")
-    public Integer getRepairSpending() {
-        return repairSpending;
-    }
-
-    public void setRepairSpending(Integer repairSpending) {
-        this.repairSpending = repairSpending;
     }
 
     @Basic
@@ -77,20 +46,50 @@ public class RepairRequest {
         this.status = status;
     }
 
+    @Basic
+    @Column(name = "carsid")
+    public Integer getCarsid() {
+        return carsid;
+    }
+
+    public void setCarsid(Integer carsid) {
+        this.carsid = carsid;
+    }
+
+    @Basic
+    @Column(name = "timeoffix")
+    public String getTimeoffix() {
+        return timeoffix;
+    }
+
+    public void setTimeoffix(String timeoffix) {
+        this.timeoffix = timeoffix;
+    }
+
+    @Basic
+    @Column(name = "repairspendings")
+    public Integer getRepairspendings() {
+        return repairspendings;
+    }
+
+    public void setRepairspendings(Integer repairspendings) {
+        this.repairspendings = repairspendings;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RepairRequest that = (RepairRequest) o;
+        Repairrequest that = (Repairrequest) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (carsId != null ? !carsId.equals(that.carsId) : that.carsId != null) return false;
         if (issues != null ? !issues.equals(that.issues) : that.issues != null) return false;
-        if (timeFix != null ? !timeFix.equals(that.timeFix) : that.timeFix != null) return false;
-        if (repairSpending != null ? !repairSpending.equals(that.repairSpending) : that.repairSpending != null)
-            return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (carsid != null ? !carsid.equals(that.carsid) : that.carsid != null) return false;
+        if (timeoffix != null ? !timeoffix.equals(that.timeoffix) : that.timeoffix != null) return false;
+        if (repairspendings != null ? !repairspendings.equals(that.repairspendings) : that.repairspendings != null)
+            return false;
 
         return true;
     }
@@ -98,11 +97,11 @@ public class RepairRequest {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (carsId != null ? carsId.hashCode() : 0);
         result = 31 * result + (issues != null ? issues.hashCode() : 0);
-        result = 31 * result + (timeFix != null ? timeFix.hashCode() : 0);
-        result = 31 * result + (repairSpending != null ? repairSpending.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (carsid != null ? carsid.hashCode() : 0);
+        result = 31 * result + (timeoffix != null ? timeoffix.hashCode() : 0);
+        result = 31 * result + (repairspendings != null ? repairspendings.hashCode() : 0);
         return result;
     }
 }

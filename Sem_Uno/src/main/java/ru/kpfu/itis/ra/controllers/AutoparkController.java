@@ -6,12 +6,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.kpfu.itis.ra.models.Autopark;
-import ru.kpfu.itis.ra.models.MyUser;
-import ru.kpfu.itis.ra.repositories.AutoparkRepository;
-import ru.kpfu.itis.ra.service.AutoparkService;
-
-import java.util.List;
+import ru.kpfu.itis.ra.models.Car;
+import ru.kpfu.itis.ra.service.CarService;
 
 /**
  * Created by rubenahmadiev on 07.05.16.
@@ -20,20 +16,10 @@ import java.util.List;
 public class AutoparkController {
 
     @Autowired
-    AutoparkService autoparkService;
+    CarService carService;
 
 
-    @RequestMapping(value = "/autopark", method = RequestMethod.GET)
-    public String getCars(ModelMap model) {
-
-        List<Autopark> autoparks = autoparkService.getAll();
-
-        model.addAttribute("autopark", autoparks);
-
-        return "/admin";
-    }
-
-    @RequestMapping(value = "/autopark/car_add", method = RequestMethod.POST)
+    @RequestMapping(value = "/car_add", method = RequestMethod.POST)
     public String addCar(ModelMap modelMap,
                          @RequestParam("mark") String mark,
                          @RequestParam("model") String model,
@@ -44,7 +30,7 @@ public class AutoparkController {
                          @RequestParam("bearing_capacity") Integer bearing_capacity,
                          @RequestParam("mileage") Integer mileage,
                          @RequestParam("vehicle_condition") Integer vehicle_condition) {
-        Autopark autopark = new Autopark();
+        Car autopark = new Car();
         autopark.setMark(mark);
         modelMap.addAttribute("mark", mark);
         autopark.setModel(model);
@@ -68,9 +54,14 @@ public class AutoparkController {
 //        autopark.setNetProfit(net_profit);
 //        modelMap.addAttribute("net_profit", net_profit);
 
-        autoparkService.create(autopark);
+        carService.create(autopark);
         modelMap.addAttribute(autopark);
 
-        return "redirect:/autopark";
+        return "redirect:/cars";
+    }
+
+    @RequestMapping(value = "/car_add", method = RequestMethod.GET)
+    public String carAddingPage() {
+        return "/car_add";
     }
 }

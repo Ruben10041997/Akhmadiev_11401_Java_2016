@@ -1,7 +1,6 @@
 package ru.kpfu.itis.ra.service;
 
-import ru.kpfu.itis.ra.models.MyUser;
-import ru.kpfu.itis.ra.models.RepairRequest;
+import ru.kpfu.itis.ra.models.Repairrequest;
 
 import java.util.List;
 
@@ -10,15 +9,13 @@ import java.util.List;
  */
 public interface RepairRequestService {
 
-    List<RepairRequest> getAll();
+    List<Repairrequest> getAll();
 
-    RepairRequest getById(Integer id);
+    Repairrequest getById(Integer id);
 
-    RepairRequest getByCarsId(Integer carsId);
+    Repairrequest create(Repairrequest repairRequest);
 
-    RepairRequest create(RepairRequest repairRequest);
-
-    RepairRequest delete(Integer id);
+    Repairrequest delete(Integer id);
 
 
 }

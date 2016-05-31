@@ -3,7 +3,7 @@ package ru.kpfu.itis.ra.models;
 import javax.persistence.*;
 
 /**
- * Created by rubenahmadiev on 04.05.16.
+ * Created by rubenahmadiev on 26.05.16.
  */
 @Entity
 public class MyUser {
@@ -11,6 +11,29 @@ public class MyUser {
     private String password;
     private String role;
     private Integer id;
+    private String email;
+    private Driver driver;
+    private Client client;
+
+    @OneToOne
+    @JoinColumn(name = "clientid", referencedColumnName = "id")
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "driverid", referencedColumnName = "id")
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
 
     @Basic
     @Column(name = "login")
@@ -45,7 +68,7 @@ public class MyUser {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_seq")
-    @SequenceGenerator(name = "user_id_seq", sequenceName = "users_id_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "user_id_seq", sequenceName = "user_id_sequence", allocationSize = 1)
     public Integer getId() {
         return id;
     }
@@ -54,14 +77,14 @@ public class MyUser {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "MyUser{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                ", id=" + id +
-                '}';
+    @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -75,6 +98,7 @@ public class MyUser {
         if (password != null ? !password.equals(myUser.password) : myUser.password != null) return false;
         if (role != null ? !role.equals(myUser.role) : myUser.role != null) return false;
         if (id != null ? !id.equals(myUser.id) : myUser.id != null) return false;
+        if (email != null ? !email.equals(myUser.email) : myUser.email != null) return false;
 
         return true;
     }
@@ -85,6 +109,7 @@ public class MyUser {
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (role != null ? role.hashCode() : 0);
         result = 31 * result + (id != null ? id.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
     }
 }

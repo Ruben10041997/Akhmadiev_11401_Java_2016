@@ -2,8 +2,8 @@ package ru.kpfu.itis.ra.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.kpfu.itis.ra.models.Client;
 import ru.kpfu.itis.ra.models.ClientsOrder;
+import ru.kpfu.itis.ra.models.Driver;
 
 
 import java.util.List;
@@ -20,7 +20,15 @@ public interface ClientsOrderRepository extends JpaRepository<ClientsOrder, Inte
 
     ClientsOrder findById(Integer id);
 
-    ClientsOrder findByOrdersName(String ordersName);
+    List<ClientsOrder> findOrderByDriver(Driver driver);
+
+    List<ClientsOrder> findOrderByStatus(String status);
+
+    List<ClientsOrder> findOrderByDriverid(Integer driverId);
+
+    List<ClientsOrder> findOrderByClientid(Integer clientId);
+
+//    ClientsOrder findByOrdersName(String ordersName);
 
 //    List<ClientsOrder> findAllbyStatus(String status);
 

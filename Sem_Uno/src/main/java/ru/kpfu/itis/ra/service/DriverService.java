@@ -1,7 +1,7 @@
 package ru.kpfu.itis.ra.service;
 
+import ru.kpfu.itis.ra.models.ClientsOrder;
 import ru.kpfu.itis.ra.models.Driver;
-import ru.kpfu.itis.ra.models.MyUser;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ public interface DriverService {
 
     List<Driver> getAll();
 
-    Driver getById(Integer id);
+  //  List<Driver> getByOrder(ClientsOrder order);
 
-//    Driver getByCarsId(Integer carsId);
+    Driver getById(Integer id);
 
     Driver create(Driver driver);
 

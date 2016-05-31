@@ -33,6 +33,12 @@ public class SigninController {
         } else if (request.isUserInRole("ROLE_USER")) {
             request.getSession().setAttribute("user", UserFromSecurity.getUsersFromSecurity());
             return "redirect:/home/";
+        } else if (request.isUserInRole("ROLE_CLIENT")) {
+            request.getSession().setAttribute("user", UserFromSecurity.getUsersFromSecurity());
+            return "redirect:/client/";
+        }  else if (request.isUserInRole("ROLE_DRIVER")) {
+            request.getSession().setAttribute("user", UserFromSecurity.getUsersFromSecurity());
+            return "redirect:/driver/";
         } else {
             request.getSession().setAttribute("user", null);
             return "redirect:/anonim";

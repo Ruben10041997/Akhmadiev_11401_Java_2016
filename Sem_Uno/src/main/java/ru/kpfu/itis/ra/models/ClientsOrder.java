@@ -6,7 +6,6 @@ import javax.persistence.*;
  * Created by rubenahmadiev on 24.04.16.
  */
 @Entity
-@Table(name = "clients_order", schema = "public", catalog = "AutoManagment")
 public class ClientsOrder {
     private Integer id;
     private String ordersName;
@@ -14,11 +13,51 @@ public class ClientsOrder {
     private String deadline;
     private Integer price;
     private String status;
+    private Driver driver;
+    private Client client;
+    private Integer driver_id;
+    private Integer client_id;
+
+    public Integer getClientid() {
+        return client_id;
+    }
+
+    public void setClientid(Integer clientid) {
+        this.client_id = clientid;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "driver_id", referencedColumnName = "id")
+    public Driver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver driver) {
+        this.driver = driver;
+    }
+
+    public Integer getDriverid() {
+        return driver_id;
+    }
+
+    public void setDriverid(Integer driverid) {
+        this.driver_id = driverid;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "clients_order_id_seq")
-    @SequenceGenerator(name = "clients_order_id_seq", sequenceName = "client_id_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "clients_order_id_seq", sequenceName = "client_order_id_sequence", allocationSize = 1)
     public Integer getId() {
         return id;
     }
@@ -28,7 +67,7 @@ public class ClientsOrder {
     }
 
     @Basic
-    @Column(name = "orders_name")
+    @Column(name = "ordersname")
     public String getOrdersName() {
         return ordersName;
     }
@@ -38,7 +77,7 @@ public class ClientsOrder {
     }
 
     @Basic
-    @Column(name = "required_transport")
+    @Column(name = "requiredtransport")
     public String getRequiredTransport() {
         return requiredTransport;
     }
@@ -91,6 +130,8 @@ public class ClientsOrder {
         if (deadline != null ? !deadline.equals(that.deadline) : that.deadline != null) return false;
         if (price != null ? !price.equals(that.price) : that.price != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (driver != null ? !driver.equals(that.driver) : that.driver != null) return false;
+
 
         return true;
     }
@@ -103,6 +144,19 @@ public class ClientsOrder {
         result = 31 * result + (deadline != null ? deadline.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (driver != null ? driver.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "ClientsOrder{" +
+                "id=" + id +
+                ", ordersName='" + ordersName + '\'' +
+                ", requiredTransport='" + requiredTransport + '\'' +
+                ", deadline='" + deadline + '\'' +
+                ", price=" + price +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

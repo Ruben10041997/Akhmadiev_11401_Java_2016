@@ -3,10 +3,10 @@ package ru.kpfu.itis.ra.models;
 import javax.persistence.*;
 
 /**
- * Created by rubenahmadiev on 24.04.16.
+ * Created by rubenahmadiev on 25.05.16.
  */
 @Entity
-public class Autopark {
+public class Car {
     private Integer id;
     private String mark;
     private String model;
@@ -23,8 +23,8 @@ public class Autopark {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "autopark_id_seq")
-    @SequenceGenerator(name = "autopark_id_seq", sequenceName = "autopark_id_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "car_id_seq")
+    @SequenceGenerator(name = "car_id_seq", sequenceName = "car_id_sequence", allocationSize = 1)
     public Integer getId() {
         return id;
     }
@@ -124,7 +124,7 @@ public class Autopark {
     }
 
     @Basic
-    @Column(name = "maintenance costs")
+    @Column(name = "maintenance_costs")
     public Integer getMaintenanceCosts() {
         return maintenanceCosts;
     }
@@ -143,7 +143,6 @@ public class Autopark {
         this.netProfit = netProfit;
     }
 
-
     @Basic
     @Column(name = "driver_id")
     public Integer getDriverId() {
@@ -159,46 +158,27 @@ public class Autopark {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Autopark autopark = (Autopark) o;
+        Car car = (Car) o;
 
-        if (id != null ? !id.equals(autopark.id) : autopark.id != null) return false;
-        if (mark != null ? !mark.equals(autopark.mark) : autopark.mark != null) return false;
-        if (model != null ? !model.equals(autopark.model) : autopark.model != null) return false;
-        if (year != null ? !year.equals(autopark.year) : autopark.year != null) return false;
-        if (type != null ? !type.equals(autopark.type) : autopark.type != null) return false;
-        if (power != null ? !power.equals(autopark.power) : autopark.power != null) return false;
-        if (peopleCapacity != null ? !peopleCapacity.equals(autopark.peopleCapacity) : autopark.peopleCapacity != null)
+        if (id != null ? !id.equals(car.id) : car.id != null) return false;
+        if (mark != null ? !mark.equals(car.mark) : car.mark != null) return false;
+        if (model != null ? !model.equals(car.model) : car.model != null) return false;
+        if (year != null ? !year.equals(car.year) : car.year != null) return false;
+        if (type != null ? !type.equals(car.type) : car.type != null) return false;
+        if (power != null ? !power.equals(car.power) : car.power != null) return false;
+        if (peopleCapacity != null ? !peopleCapacity.equals(car.peopleCapacity) : car.peopleCapacity != null)
             return false;
-        if (bearingCapacity != null ? !bearingCapacity.equals(autopark.bearingCapacity) : autopark.bearingCapacity != null)
+        if (bearingCapacity != null ? !bearingCapacity.equals(car.bearingCapacity) : car.bearingCapacity != null)
             return false;
-        if (mileage != null ? !mileage.equals(autopark.mileage) : autopark.mileage != null) return false;
-        if (vehicleCondition != null ? !vehicleCondition.equals(autopark.vehicleCondition) : autopark.vehicleCondition != null)
+        if (mileage != null ? !mileage.equals(car.mileage) : car.mileage != null) return false;
+        if (vehicleCondition != null ? !vehicleCondition.equals(car.vehicleCondition) : car.vehicleCondition != null)
             return false;
-        if (maintenanceCosts != null ? !maintenanceCosts.equals(autopark.maintenanceCosts) : autopark.maintenanceCosts != null)
+        if (maintenanceCosts != null ? !maintenanceCosts.equals(car.maintenanceCosts) : car.maintenanceCosts != null)
             return false;
-        if (netProfit != null ? !netProfit.equals(autopark.netProfit) : autopark.netProfit != null) return false;
-        if (driverId != null ? !driverId.equals(autopark.driverId) : autopark.driverId != null) return false;
+        if (netProfit != null ? !netProfit.equals(car.netProfit) : car.netProfit != null) return false;
+        if (driverId != null ? !driverId.equals(car.driverId) : car.driverId != null) return false;
 
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Autopark{" +
-                "id=" + id +
-                ", mark='" + mark + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", type='" + type + '\'' +
-                ", power=" + power +
-                ", peopleCapacity=" + peopleCapacity +
-                ", bearingCapacity=" + bearingCapacity +
-                ", mileage=" + mileage +
-                ", vehicleCondition=" + vehicleCondition +
-                ", maintenanceCosts=" + maintenanceCosts +
-                ", netProfit=" + netProfit +
-                ", driverId=" + driverId +
-                '}';
     }
 
     @Override
@@ -217,5 +197,24 @@ public class Autopark {
         result = 31 * result + (netProfit != null ? netProfit.hashCode() : 0);
         result = 31 * result + (driverId != null ? driverId.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", mark='" + mark + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", type='" + type + '\'' +
+                ", power=" + power +
+                ", peopleCapacity=" + peopleCapacity +
+                ", bearingCapacity=" + bearingCapacity +
+                ", mileage=" + mileage +
+                ", vehicleCondition=" + vehicleCondition +
+                ", maintenanceCosts=" + maintenanceCosts +
+                ", netProfit=" + netProfit +
+                ", driverId=" + driverId +
+                '}';
     }
 }

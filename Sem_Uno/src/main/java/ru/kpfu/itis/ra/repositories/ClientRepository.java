@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Created by rubenahmadiev on 07.05.16.
  */
+
 @Repository
 public interface ClientRepository extends JpaRepository<Client, Integer> {
 

@@ -1,41 +1,38 @@
 package ru.kpfu.itis.ra.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kpfu.itis.ra.models.Autopark;
-import ru.kpfu.itis.ra.models.MyUser;
-import ru.kpfu.itis.ra.repositories.AutoparkRepository;
-import ru.kpfu.itis.ra.service.AutoparkService;
-import org.springframework.security.web.DefaultSecurityFilterChain;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import ru.kpfu.itis.ra.models.Car;
+import ru.kpfu.itis.ra.repositories.CarRepository;
+import ru.kpfu.itis.ra.service.CarService;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by rubenahmadiev on 24.04.16.
+ * Created by rubenahmadiev on 25.05.16.
  */
 
 @Service
 @Transactional
-public class AutoparkServiceImpl implements AutoparkService {
+public class CarServiceImpl implements CarService {
 
     @Autowired
-    AutoparkRepository autoparkRepository;
+    CarRepository carRepository;
 
 
     @Transactional
-    public Autopark findById(Integer id) {
-        return autoparkRepository.findById(id);
+    public Car findById(Integer id) {
+        return carRepository.findById(id);
     }
 
     @Transactional
-    public List<Autopark> getAll() {
-        return autoparkRepository.findAll();
+    public List<Car> getAll() {
+        return carRepository.findAll();
+    }
+
+    public Car findByMark(String mark) {
+        return carRepository.findByMark(mark);
     }
 
 //    @Transactional
@@ -59,7 +56,7 @@ public class AutoparkServiceImpl implements AutoparkService {
 //    }
 
     @Transactional
-    public Autopark create(Autopark car) {
+    public Car create(Car car) {
         car.setMark(car.getMark());
         car.setModel(car.getModel());
         car.setYear(car.getYear());
@@ -69,15 +66,17 @@ public class AutoparkServiceImpl implements AutoparkService {
         car.setBearingCapacity(car.getBearingCapacity());
         car.setMileage(car.getMileage());
         car.setVehicleCondition(car.getVehicleCondition());
+        car.setMaintenanceCosts(car.getMaintenanceCosts());
+        car.setNetProfit(car.getNetProfit());
         car.setDriverId(car.getDriverId());
-        return autoparkRepository.save(car);
+        return carRepository.save(car);
     }
 
     @Transactional
-    public Autopark delete(Integer id) {
-        Autopark deleteCar = autoparkRepository.findById(id);
-        autoparkRepository.delete(deleteCar);
+    public Car delete(Integer id) {
+        Car deleteCar = carRepository.findById(id);
+        carRepository.delete(deleteCar);
         return deleteCar;
     }
-}
 
+}

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.kpfu.itis.ra.models.MyUser;
-import ru.kpfu.itis.ra.repositories.UserRepository;
 import ru.kpfu.itis.ra.service.UserService;
 
 /**
@@ -24,7 +23,8 @@ public class RegistrationController {
     public String signUp(ModelMap model,
                          @RequestParam("login") String login,
                          @RequestParam("password") String password,
-                         @RequestParam("role") String role) {
+                         @RequestParam("role") String role,
+                         @RequestParam("email") String email) {
         MyUser user = new MyUser();
         user.setLogin(login);
         model.addAttribute("login", login);
@@ -32,6 +32,8 @@ public class RegistrationController {
         model.addAttribute("password", password);
         user.setRole(role);
         model.addAttribute("role", role);
+        user.setEmail(email);
+        model.addAttribute("email", email);
 
         us.create(user);
         model.addAttribute(user);

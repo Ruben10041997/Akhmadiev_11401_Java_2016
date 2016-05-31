@@ -13,7 +13,9 @@
 
         <security:intercept-url pattern="/anonim" access="isAnonymous()"/>
         <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
-        <security:intercept-url pattern="/home/**" access="isAuthenticated()"/>
+        <security:intercept-url pattern="/client/**" access="hasRole('ROLE_CLIENT')"/>
+        <security:intercept-url pattern="/driver/**" access="hasRole('ROLE_DRIVER')"/>
+        <security:intercept-url pattern="/home/**" access="hasRole('ROLE_USER')"/>
         <security:form-login
                 login-page="/signin"
                 authentication-failure-url="/signin_failure"

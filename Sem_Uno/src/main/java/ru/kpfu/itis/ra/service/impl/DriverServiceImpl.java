@@ -3,6 +3,7 @@ package ru.kpfu.itis.ra.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.kpfu.itis.ra.models.ClientsOrder;
 import ru.kpfu.itis.ra.models.Driver;
 import ru.kpfu.itis.ra.repositories.DriverRepository;
 import ru.kpfu.itis.ra.service.DriverService;
@@ -24,6 +25,11 @@ public class DriverServiceImpl implements DriverService {
     public List<Driver> getAll() {
         return driverRepository.findAll();
     }
+
+    //@Transactional
+//    public List<Driver> getByOrder(ClientsOrder order) {
+//        return driverRepository.findByOrder(order);
+//    }
 
     @Transactional
     public Driver getById(Integer id) {

@@ -2,9 +2,7 @@ package ru.kpfu.itis.ra.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.kpfu.itis.ra.models.Client;
-import ru.kpfu.itis.ra.models.MyUser;
-import ru.kpfu.itis.ra.models.RepairRequest;
+import ru.kpfu.itis.ra.models.Repairrequest;
 
 import java.util.List;
 
@@ -13,13 +11,10 @@ import java.util.List;
  */
 
 @Repository
-public interface RepairRequestsRepository extends JpaRepository<RepairRequest, Integer> {
+public interface RepairRequestsRepository extends JpaRepository<Repairrequest, Integer> {
 
-    List<RepairRequest> findAll();
+    List<Repairrequest> findAll();
 
-    RepairRequest findById(Integer id);
-
-    RepairRequest findByCarsId(Integer carsId);
-
+    Repairrequest findById(Integer id);
 
 }

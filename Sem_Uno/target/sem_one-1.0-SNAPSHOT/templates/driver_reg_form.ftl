@@ -34,7 +34,7 @@
             </a>
 
             <a class="brand" href="/home">
-                Cars Control System
+                Driver Control System
             </a>
 
             <div class="nav-collapse">
@@ -64,60 +64,67 @@
 
 
 
+
+
 <div class="account-container register">
 
-    <div class="content clearfix">
+<div class="content clearfix">
 
-        <form action="#" class="reg-form" method="post">
+    <form action="#" class="reg-form" method="post">
 
-            <h1>Registration for Free Account</h1>
+        <h1>Driver adding</h1>
 
-            <div class="login-fields">
+        <div class="login-fields">
 
-                <p>Create your free account:</p>
+            <p>Add a driver:</p>
 
-                <div class="field">
-                    <label for="login">Login:</label>
-                    <input type="text" id="login" name="login" value="" placeholder="Login" class="login" />
-                </div> <!-- /field -->
+            <div class="field">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" value="" placeholder="First Name" class="login" />
+            </div> <!-- /field -->
 
-                <div class="field">
-                    <label for="role">Role:(USER_ROLE)</label>
-                    <input type="text" id="role" name="role" value="" placeholder="Role" class="login" />
-                </div> <!-- /field -->
+            <div class="field">
+                <label for="secondname">Second Name:</label>
+                <input type="text" id="secondname" name="secondname" value="" placeholder="Second Name" class="login" />
+            </div> <!-- /field -->
 
 
-            <#--<div class="field">-->
-            <#--<label for="email">Email Address:</label>-->
-            <#--<input type="text" id="email" name="email" value="" placeholder="Email" class="login"/>-->
-            <#--</div> <!-- /field &ndash;&gt;-->
+            <div class="field">
+                <label for="yearofborn">Year Of Born:</label>
+                <input type="number" id="yearofborn" name="yearofborn" value="" placeholder="Year Of Born" class="login"/>
+            </div> <!-- /field -->
 
-                <div class="field">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" value="" placeholder="Password" class="login"/>
-                </div> <!-- /field -->
+            <div class="field">
+                <label for="personalexperience">Personal Experience:</label>
+                <input type="number" id="personalexperience" name="personalexperience" value="" placeholder="Personal Experience" class="login"/>
+            </div> <!-- /field -->
 
-            <#--<div class="field">-->
-            <#--<label for="confirm_password">Confirm Password:</label>-->
-            <#--<input type="password" id="confirm_password" name="confirm_password" value="" placeholder="Confirm Password" class="login"/>-->
-            <#--</div> <!-- /field &ndash;&gt;-->
+            <div class="field">
+                <label for="specialization">Specialization:</label>
+                <input type="text" id="specialization" name="specialization" value="" placeholder="Specialization" class="login"/>
+            </div> <!-- /field -->
 
-            </div> <!-- /login-fields -->
+            <div class="field">
+                <label for="totalmileage">Total Mileage:</label>
+                <input type="number" id="totalmileage" name="totalmileage" value="" placeholder="Total Mileage" class="login"/>
+            </div> <!-- /field -->
 
-            <div class="login-actions">
+            <div class="field">
+                <label for="mail">E-mail:</label>
+                <input type="text" id="mail" name="mail" value="" placeholder="Mail" class="login"/>
+            </div> <!-- /field -->
 
-            <#--<span class="login-checkbox">-->
-            <#--<input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />-->
-            <#--<label class="choice" for="Field">Agree with the Terms & Conditions.</label>-->
-            <#--</span>-->
+        </div> <!-- /login-fields -->
 
-                <button class="button btn btn-primary btn-large">Register</button>
+        <div class="login-actions">
 
-            </div> <!-- .actions -->
+            <button class="button btn btn-primary btn-large">Add</button>
 
-        </form>
+        </div> <!-- .actions -->
 
-    </div> <!-- /content -->
+    </form>
+
+</div> <!-- /content -->
 
 </div> <!-- /account-container -->
 

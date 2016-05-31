@@ -1,7 +1,7 @@
 package ru.kpfu.itis.ra.service;
 
 import ru.kpfu.itis.ra.models.ClientsOrder;
-import ru.kpfu.itis.ra.models.MyUser;
+import ru.kpfu.itis.ra.models.Driver;
 
 import java.util.List;
 
@@ -12,14 +12,22 @@ public interface ClientsOrderService {
 
     List<ClientsOrder> getAll();
 
+    List<ClientsOrder> getByDriver(Driver driver);
+
     ClientsOrder getById(Integer id);
 
-    ClientsOrder getByOrdersName(String ordersName);
+//    ClientsOrder getByOrdersName(String ordersName);
 
-//    List<ClientsOrder> getAllbyStatus(String status);
+    List<ClientsOrder> getAllbyStatus(String status);
+
+    List<ClientsOrder> getAllbyDriverid(Integer driverId);
+
+    List<ClientsOrder> getAllbyClientid(Integer clientId);
 
     ClientsOrder create(ClientsOrder clientsOrder);
 
     ClientsOrder delete(Integer id);
+
+    ClientsOrder update(ClientsOrder clientsOrder);
 
 }

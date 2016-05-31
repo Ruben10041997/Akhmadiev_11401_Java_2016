@@ -1,6 +1,7 @@
 package ru.kpfu.itis.ra.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by rubenahmadiev on 24.04.16.
@@ -17,6 +18,31 @@ public class Driver {
     private Integer moneyPaid;
     private Integer netProfit;
     private String mail;
+    private List<ClientsOrder> orders;
+    private MyUser user;
+
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "driver_id")
+    public List<ClientsOrder> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<ClientsOrder> orders) {
+        this.orders = orders;
+    }
+
+
+
+    @OneToOne
+    @JoinColumn(name= "id", referencedColumnName = "driverid")
+    public MyUser getUser() {
+        return user;
+    }
+
+    public void setUser(MyUser user) {
+        this.user = user;
+    }
 
     @Id
     @Column(name = "id")
@@ -31,7 +57,7 @@ public class Driver {
     }
 
     @Basic
-    @Column(name = "first_name")
+    @Column(name = "firstname")
     public String getFirstName() {
         return firstName;
     }
@@ -41,7 +67,7 @@ public class Driver {
     }
 
     @Basic
-    @Column(name = "second_name")
+    @Column(name = "secondname")
     public String getSecondName() {
         return secondName;
     }
@@ -51,7 +77,7 @@ public class Driver {
     }
 
     @Basic
-    @Column(name = "year_of_born")
+    @Column(name = "yearofborn")
     public Integer getYearOfBorn() {
         return yearOfBorn;
     }
@@ -61,7 +87,7 @@ public class Driver {
     }
 
     @Basic
-    @Column(name = "personal_experience")
+    @Column(name = "personalexperience")
     public Integer getPersonalExperience() {
         return personalExperience;
     }
@@ -81,7 +107,7 @@ public class Driver {
     }
 
     @Basic
-    @Column(name = "total_mileage")
+    @Column(name = "totalmileage")
     public Integer getTotalMileage() {
         return totalMileage;
     }
@@ -91,7 +117,7 @@ public class Driver {
     }
 
     @Basic
-    @Column(name = "money_paid")
+    @Column(name = "moneypaid")
     public Integer getMoneyPaid() {
         return moneyPaid;
     }
@@ -101,7 +127,7 @@ public class Driver {
     }
 
     @Basic
-    @Column(name = "net_profit")
+    @Column(name = "netprofit")
     public Integer getNetProfit() {
         return netProfit;
     }
@@ -118,6 +144,22 @@ public class Driver {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", yearOfBorn=" + yearOfBorn +
+                ", personalExperience=" + personalExperience +
+                ", specialization='" + specialization + '\'' +
+                ", totalMileage=" + totalMileage +
+                ", moneyPaid=" + moneyPaid +
+                ", netProfit=" + netProfit +
+                ", mail='" + mail + '\'' +
+                '}';
     }
 
     @Override
